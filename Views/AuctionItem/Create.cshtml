@@ -1,0 +1,64 @@
+﻿@model tezt.Models.AuctionItem
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+p {
+  color: navy;
+  
+}
+</style>
+<h1>Create new Auction Item</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <p>Please enter the Auction item Id with three letters and six numbers</p>
+                <p>Example of a valid ID: ABC123456</p>
+                <label asp-for="AuctionItemId" class="control-label"></label>
+                <input asp-for="AuctionItemId" class="form-control" />
+                <span asp-validation-for="AuctionItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuctionItemName" class="control-label"></label>
+                <input asp-for="AuctionItemName" class="form-control" />
+                <span asp-validation-for="AuctionItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuctionItemDescription" class="control-label"></label>
+                <input asp-for="AuctionItemDescription" class="form-control" />
+                <span asp-validation-for="AuctionItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Decade" class="control-label"></label>
+                <input asp-for="Decade" class="form-control" />
+                <span asp-validation-for="Decade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                   <p>Category Id 1 = Transport</p> 
+                   <p>Category Id 2 = Decoration</p> 
+                   <p>Category Id 3 = HouseHold</p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
